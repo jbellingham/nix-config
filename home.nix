@@ -99,7 +99,7 @@
   programs.git = {
     enable = true;
     userName = "Jesse Bellingham";
-    # userEmail = "xiaoyin_c@qq.com";
+    userEmail = "5078290+jbellingham@users.noreply.github.com";
   };
 
   # starship - an customizable prompt for any shell
