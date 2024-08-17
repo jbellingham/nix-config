@@ -14,28 +14,28 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, ... }@inputs: 
+    let
+      # Global configuration for my systems
+      globals =
+        rec {
+            # user = "jesse";
+            # fullName = fullName;        
+            # gitName = fullName;
+            # gitEmail = "5078290+jbellingham@users.noreply.github.com";
+          };
+
+      # System types to support.
+      supportedSystems =
+        [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
+
+      # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
+    in rec {
     nixosConfigurations = {
-      # TODO please change the hostname to your own
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/nixos/configuration.nix
-
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            # TODO replace jesse with your own username
-            home-manager.users.jesse = import ./home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          }
-        ];
-      };
+      nixos = import ./hosts/nixos { inherit inputs globals; };
+      # darwin = import ./hosts/darwin { inherit inputs globals; };
     };
   };
 }
