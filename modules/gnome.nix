@@ -58,6 +58,11 @@
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/desktop/background" = {
+        picture-uri = "file:///home/jesse/.local/share/backgrounds/2024-08-18-20-40-07-alex-knight-Ys-DBJeX0nE-unsplash.jpg";
+        # picture-uri-dark = "";
+      };
+
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       # Enable installed extensions
       "org/gnome/shell".enabled-extensions = map (extension: extension.extensionUuid) home.packages;

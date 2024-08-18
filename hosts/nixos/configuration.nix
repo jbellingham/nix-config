@@ -59,15 +59,24 @@
     "md.obsidian.Obsidian"
   ];
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
+    # Enable the X11 windowing system.
+    enable = true;
+  
+    # Enable the GNOME Desktop Environment.
+    displayManager.gdm.enable = true;
+    desktopManager = {
+      gnome.enable = true;
+      wallpaper = {
+        combineScreens = false;
+        mode = "scale";
+      };
+    };
+
+    
+
     layout = "au";
     xkbVariant = "";
   };
