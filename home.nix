@@ -4,13 +4,7 @@
   imports = [
     ./modules/gnome.nix
   ];
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Gruvbox-GTK-Theme";
-      package = pkgs.gruvbox-gtk-theme;
-    };
-  };
+  
   # TODO please change the username & home directory to your own
   home.username = "jesse";
   home.homeDirectory = "/home/jesse";

@@ -7,6 +7,7 @@
     blur-my-shell
     pano
     gsconnect
+    dash-to-dock
     removable-drive-menu
     bluetooth-quick-connect
     sound-output-device-chooser
@@ -15,18 +16,57 @@
     rounded-window-corners
     vitals
     just-perfection
-    espresso
+    # caffeine-ng
     user-themes
     user-themes-x
+    pop-shell
   ];
+
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    theme = {
+      name = "palenight";
+      package = pkgs.palenight-theme;
+    };
+
+    cursorTheme = {
+      name = "Numix-Cursor";
+      package = pkgs.numix-cursor-theme;
+    };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "palenight";
 
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       # Enable installed extensions
       "org/gnome/shell".enabled-extensions = map (extension: extension.extensionUuid) home.packages;
 
-      "org/gnome/shell".disabled-extensions = [];
+      "org/gnome/shell".disabled-extensions = [ ];
+
+      "org/gnome/shell/extensions/user-theme" = {
+        name = "palenight";
+      };
 
       # Configure blur-my-shell
       "org/gnome/shell/extensions/blur-my-shell" = {
@@ -35,7 +75,7 @@
         sigma = 15; # Sigma means blur amount
         static-blur = true;
       };
-      "org/gnome/shell/extensions/blur-my-shell/panel".blur = false;
+      "org/gnome/shell/extensions/blur-my-shell/panel".blur = true;
       "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
         blur = true;
         style-dialogs = 0;
@@ -79,16 +119,19 @@
         ];
       };
 
-      "org/gnome/shell/extensions/espresso" = {
-        show-notifications = false;
-      };
-
       "org/gnome/shell/extensions/just-perfection" = {
         app-menu = false;
         activities-button = false;
-        dash = false;
         workspace-switcher-should-show = true;
         startup-status = 0;
+        dash = true;
+        panel = true;
+      };
+
+      "org/gnome/shell/extensions/dash-to-dock" = {
+        dock-fixed = true;
+        multi-monitor = true;
+        dock-position = "LEFT";
       };
     };
   };
