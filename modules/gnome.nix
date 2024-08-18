@@ -4,21 +4,22 @@
 }: rec {
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
-    pano
+    # pano
     gsconnect
     dash-to-dock
     removable-drive-menu
     bluetooth-quick-connect
-    sound-output-device-chooser
+    # sound-output-device-chooser
     coverflow-alt-tab
     panel-corners
-    rounded-window-corners
+    # rounded-window-corners
     vitals
     just-perfection
     # caffeine-ng
     user-themes
     user-themes-x
-    pop-shell
+    # pop-shell
+    tactile
   ];
 
   gtk = {
@@ -141,9 +142,19 @@
 
       "org/gnome/desktop/wm/preferences".button-layout = "close,minimize";
 
-      "org/gnome/shell/extensions/pop-shell" = {
-        tile-by-default = true;
-        active-hint = true;
+      # "org/gnome/shell/extensions/pop-shell" = {
+      #   tile-by-default = false;
+      #   active-hint = true;
+      # };
+
+      "org/gnome/shell/extensions/tactile" = {
+        gap-size = 5;
+        border-size = 5;
+        col-0 = 1;
+        col-1 = 3;
+        col-2 = 1;
+        row-0 = 1;
+        row-1 = 1;
       };
 
       "org/gnome/shell" = {
