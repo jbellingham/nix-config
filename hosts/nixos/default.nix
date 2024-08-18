@@ -10,8 +10,7 @@ nixpkgs.lib.nixosSystem {
     inputs.home-manager.nixosModules.home-manager
     ./configuration.nix
     ./hardware-configuration.nix
-    ../../modules/common/applications/vscode.nix
-    #../../modules/common
+    ../../modules/common
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
