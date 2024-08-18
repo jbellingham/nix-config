@@ -10,6 +10,11 @@
       ./hardware-configuration.nix
     ];
 
+  # nixpkgs.config.packageOverrides = pkgs: {
+  #   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+  #     inherit pkgs;
+  #   };
+  # };
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -48,6 +53,11 @@
     LC_TELEPHONE = "en_AU.UTF-8";
     LC_TIME = "en_AU.UTF-8";
   };
+
+  services.flatpak.enable = true;
+  services.flatpak.packages = [
+    "md.obsidian.Obsidian"
+  ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -118,6 +128,13 @@
     gnome.gnome-tweaks
   #  wget
   ];
+
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    epiphany
+  ]);
+
   environment.variables.EDITOR = "vim";
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,7 +1,7 @@
 { ...}: {
   imports = [
-    ./applications/vscode.nix
     ./fonts.nix
+    ./applications
     ./terminal
     ./git
   ];

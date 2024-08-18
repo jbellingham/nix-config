@@ -2,7 +2,6 @@
   pkgs,
   ...
 }: rec {
-  
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
     pano
@@ -121,17 +120,42 @@
 
       "org/gnome/shell/extensions/just-perfection" = {
         app-menu = false;
-        activities-button = false;
+        activities-button = true;
+        workspace = true;
         workspace-switcher-should-show = true;
+        window-picker-icon = true;
         startup-status = 0;
         dash = true;
         panel = true;
+        search = true;
+        show-apps-button = true;
       };
 
       "org/gnome/shell/extensions/dash-to-dock" = {
         dock-fixed = true;
         multi-monitor = true;
         dock-position = "LEFT";
+        click-action = "focus-minimize-or-previews";
+        scroll-action = "cycle-windows";
+      };
+
+      "org/gnome/desktop/wm/preferences".button-layout = "close,minimize";
+
+      "org/gnome/shell/extensions/pop-shell" = {
+        tile-by-default = true;
+        active-hint = true;
+      };
+
+      "org/gnome/shell" = {
+        favourite-apps = [
+          "firefox.desktop"
+          "spotify.desktop"
+          "com.discordapp.Discord.desktop"
+          "code.desktop"
+          "org.gnome.Terminal.desktop"
+          "md.obsidian.Obsidian.desktop"
+          "net.lutris.Lutris.desktop"
+        ];
       };
     };
   };

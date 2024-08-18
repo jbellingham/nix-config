@@ -7,6 +7,7 @@ nixpkgs.lib.nixosSystem {
   system = "x86_64-linux";
   modules = [
     globals
+    nix-flatpak.nixosModules.nix-flatpak
     inputs.home-manager.nixosModules.home-manager
     ./configuration.nix
     ./hardware-configuration.nix
