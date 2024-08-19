@@ -64,6 +64,9 @@
       };
 
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      "org/gnome/shell/extensions/user-theme-x" = {
+        x-color = "prefer-dark";
+      };
       # Enable installed extensions
       "org/gnome/shell".enabled-extensions = map (extension: extension.extensionUuid) home.packages;
 
