@@ -89,7 +89,6 @@
       "org/gnome/shell".favorite-apps = [
         "firefox.desktop"
         "md.obsidian.Obsidian.desktop"
-        "md.obsidian.Obsidian.desktop"
         "com.spotify.Client.desktop"
         "code.desktop"
         "org.gnome.Console.desktop"
@@ -177,6 +176,8 @@
         dock-position = "LEFT";
         click-action = "focus-minimize-or-previews";
         scroll-action = "cycle-windows";
+        apply-custom-theme = true;
+        custom-theme-shrink = true;
       };
 
       "org/gnome/desktop/wm/preferences".button-layout = "close,minimize";
