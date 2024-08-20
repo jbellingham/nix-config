@@ -17,9 +17,12 @@
   # };
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/vda";
+  # boot.loader.grub.useOSProber = true;
   boot.kernelParams = [
     "quiet"
     "splash"
@@ -54,11 +57,6 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  services.flatpak.enable = true;
-  services.flatpak.packages = [
-    "md.obsidian.Obsidian"
-  ];
-
 
   # Configure keymap in X11
   services.xserver = {
@@ -75,10 +73,10 @@
       };
     };
 
-    
-
-    layout = "au";
-    xkbVariant = "";
+    xkb = {
+      layout = "au";
+      variant = "";
+    };
   };
 
   # Enable CUPS to print documents.
@@ -114,16 +112,41 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "jesse";
-
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    # Certain features, including CLI integration and system authentication support,
+    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
+    polkitPolicyOwners = [ "jesse" ];
+  };
+
+  programs.virt-manager.enable = true;
+
+  environment.etc = {
+      "1password/custom_allowed_browsers" = {
+        text = ''
+          vivaldi-bin
+          wavebox
+        '';
+        mode = "0755";
+      };
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -132,16 +155,30 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    baobab # disk usage analyzer
+    # eog         # image viewer
+    evince      # document viewer
+    # file-roller # archive manager
+    gedit       # text editor
     git
+  
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gnome.gnome-tweaks
-  #  wget
+    simple-scan # document scanner
+    yelp        # help viewer
   ];
 
+
   environment.gnome.excludePackages = (with pkgs; [
+    # gnome-music
+    # gnome-maps
     gnome-tour
   ]) ++ (with pkgs.gnome; [
-    epiphany
+    seahorse    # password manager
+    geary       # email client
+    cheese      # photo booth
+    epiphany    # web browser
+    totem       # video player
   ]);
 
   environment.variables.EDITOR = "vim";

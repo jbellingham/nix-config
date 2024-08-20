@@ -15,7 +15,7 @@
     # rounded-window-corners
     vitals
     just-perfection
-    # caffeine-ng
+    caffeine
     user-themes
     user-themes-x
     # pop-shell
@@ -58,15 +58,41 @@
   dconf = {
     enable = true;
     settings = {
+
       "org/gnome/desktop/background" = {
-        picture-uri = "file:///home/jesse/.local/share/backgrounds/2024-08-18-20-40-07-alex-knight-Ys-DBJeX0nE-unsplash.jpg";
-        # picture-uri-dark = "";
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "file:///home/jesse/.local/share/backgrounds/alex-knight-Ys-DBJeX0nE-unsplash.jpg";
+        picture-uri-dark = "file:///home/jesse/.local/share/backgrounds/alex-knight-Ys-DBJeX0nE-unsplash.jpg";
+        primary-color = "#000000000000";
+        secondary-color = "#000000000000";
+      };
+
+      "org/gnome/desktop/screensaver" = {
+        color-shading-type = "solid";
+        picture-options = "zoom";
+        picture-uri = "file:///home/jesse/.local/share/backgrounds/alex-knight-Ys-DBJeX0nE-unsplash.jpg";
+        primary-color = "#000000000000";
+        secondary-color = "#000000000000";
+      };
+
+      "org/gnome/settings-daemon/plugins/color" = {
+        night-light-enabled = true;
       };
 
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       "org/gnome/shell/extensions/user-theme-x" = {
         x-color = "prefer-dark";
       };
+
+      "org/gnome/shell".favorite-apps = [
+        "firefox.desktop"
+        "com.spotify.Client.desktop"
+        "code.desktop"
+        "org.gnome.Console.desktop"
+        "net.lutris.Lutris.desktop"
+      ];
+
       # Enable installed extensions
       "org/gnome/shell".enabled-extensions = map (extension: extension.extensionUuid) home.packages;
 
@@ -153,25 +179,32 @@
       # "org/gnome/shell/extensions/pop-shell" = {
       #   tile-by-default = false;
       #   active-hint = true;
-      # };
+      # };q
 
       "org/gnome/shell/extensions/tactile" = {
-        gap-size = 5;
+        gap-size = 15;
         border-size = 5;
+        # Layout 1 - vertical split screen
         col-0 = 1;
-        col-1 = 3;
-        col-2 = 1;
+        col-1 = 1;
         row-0 = 1;
-        row-1 = 1;
+
+        # Layout 2
+        layout-2-col-0 = 1;
+        layout-2-col-1 = 2;
+        layout-2-col-2 = 1;
+        layout-2-row-0 = 1;
+        layout-2-row-1 = 1;
       };
 
       "org/gnome/shell" = {
         favourite-apps = [
           "firefox.desktop"
           "spotify.desktop"
+          "md.obsidian.Obsidian.desktop"
           "com.discordapp.Discord.desktop"
           "code.desktop"
-          "org.gnome.Terminal.desktop"
+          "org.wezfurlong.wezterm.desktop"
           "md.obsidian.Obsidian.desktop"
           "net.lutris.Lutris.desktop"
         ];

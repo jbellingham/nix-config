@@ -1,6 +1,8 @@
 { ... }: {
   services.flatpak.enable = true;
   services.flatpak.packages = [
+    "com.github.tchx84.Flatseal"
+
     # Productivity
     "md.obsidian.Obsidian"
 

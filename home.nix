@@ -32,12 +32,10 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    gtk-engine-murrine
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
+    gtk-engine-murrine # gnome-toolkit -- gnome theme thingo
 
     neofetch
-    nnn # terminal file manager
+    mc # Midnight Commander - terminal file explorer
 
     # archives
     zip
@@ -47,7 +45,6 @@
 
     # utils
     bat
-    caffeine-ng
     p7zip
     tldr
     ripgrep # recursively searches directories for a regex pattern
@@ -85,7 +82,6 @@
     nixd # nix lsp for helping with writing nix code
 
     # productivity
-    hugo # static site generator
     glow # markdown previewer in terminal
 
     btop  # replacement of htop/nmon
@@ -106,19 +102,24 @@
   ];
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
-  programs.alacritty = {
-    enable = true;
-    # custom settings
-    settings = {
-      env.TERM = "xterm-256color";
-      font = {
-        size = 12;
-        draw_bold_text_with_bright_colors = true;
-      };
-      scrolling.multiplier = 5;
-      selection.save_to_clipboard = true;
-    };
-  };
+  # programs.alacritty = {
+  #   enable = true;
+  #   # custom settings
+  #   settings = {
+  #     env.TERM = "xterm-256color";
+  #     font = {
+  #       size = 12;
+  #       draw_bold_text_with_bright_colors = true;
+  #     };
+  #     scrolling.multiplier = 5;
+  #     selection.save_to_clipboard = true;
+  #   };
+  # };
+
+  # programs.wezterm = {
+  #   enable = true;
+  #   enableZshIntegration = true;
+  # };
 
 
   # This value determines the home Manager release that your
