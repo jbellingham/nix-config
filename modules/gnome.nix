@@ -4,7 +4,8 @@
 }: rec {
   home.packages = with pkgs.gnomeExtensions; [
     blur-my-shell
-    # pano
+    pano
+    pano
     gsconnect
     dash-to-dock
     removable-drive-menu
@@ -12,13 +13,13 @@
     # sound-output-device-chooser
     coverflow-alt-tab
     panel-corners
-    # rounded-window-corners
+    rounded-window-corners
+    rounded-window-corners
     vitals
     just-perfection
     caffeine
     user-themes
     user-themes-x
-    # pop-shell
     tactile
   ];
 
@@ -87,6 +88,8 @@
 
       "org/gnome/shell".favorite-apps = [
         "firefox.desktop"
+        "md.obsidian.Obsidian.desktop"
+        "md.obsidian.Obsidian.desktop"
         "com.spotify.Client.desktop"
         "code.desktop"
         "org.gnome.Console.desktop"
@@ -135,6 +138,7 @@
         panel-corner-background-color = "rgb(0,0,0)";
         panel-corner-opacity = 1;
         panel-corners = true;
+        panel-corner-radius = 12;
         screen-corners = true;
       };
 
@@ -154,6 +158,7 @@
       };
 
       "org/gnome/shell/extensions/just-perfection" = {
+        clock-menu-position = 2;
         app-menu = false;
         activities-button = true;
         workspace = true;
@@ -175,11 +180,6 @@
       };
 
       "org/gnome/desktop/wm/preferences".button-layout = "close,minimize";
-
-      # "org/gnome/shell/extensions/pop-shell" = {
-      #   tile-by-default = false;
-      #   active-hint = true;
-      # };q
 
       "org/gnome/shell/extensions/tactile" = {
         gap-size = 15;
@@ -208,6 +208,11 @@
           "md.obsidian.Obsidian.desktop"
           "net.lutris.Lutris.desktop"
         ];
+      };
+
+      "org/gnome/shell/extensions/caffeine" = {
+        show-indicator = "always";
+        show-timer = "true";
       };
     };
   };
