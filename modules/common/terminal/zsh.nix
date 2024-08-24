@@ -14,7 +14,7 @@
             autocd = true;
 
             shellAliases = {
-                update = "(cd ~/.config/home-manager && make)";
+                update = "(cd ~/nixos-config && make)";
                 ll = "ls -latr";
 
                 cat = "bat";

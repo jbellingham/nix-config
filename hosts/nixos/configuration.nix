@@ -146,7 +146,7 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
-
+  programs.gamemode.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -163,7 +163,7 @@
     git
   
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    gnome.gnome-tweaks
+    gnome-tweaks
     simple-scan # document scanner
     yelp        # help viewer
   ];
@@ -173,12 +173,12 @@
     # gnome-music
     # gnome-maps
     gnome-tour
-  ]) ++ (with pkgs.gnome; [
     seahorse    # password manager
     geary       # email client
     cheese      # photo booth
     epiphany    # web browser
     totem       # video player
+  ]) ++ (with pkgs.gnome; [
   ]);
 
   environment.variables.EDITOR = "vim";

@@ -8,7 +8,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     globals
     nix-flatpak.nixosModules.nix-flatpak
-    inputs.home-manager.nixosModules.home-manager
+    home-manager.nixosModules.home-manager
     ./configuration.nix
     ./hardware-configuration.nix
     ../../modules/common

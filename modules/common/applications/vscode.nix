@@ -8,6 +8,7 @@
             ms-vscode.makefile-tools
             shopify.ruby-lsp
             wakatime.vscode-wakatime
+            ms-vscode.makefile-tools
         ];
         userSettings = {
             "editor.fontSize" = 16;
