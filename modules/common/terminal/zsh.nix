@@ -15,6 +15,7 @@
 
             shellAliases = {
                 update = "(cd ~/nixos-config && make)";
+                makespace = "(cd ~/nixos-config && make space)";
                 ll = "ls -latr";
 
                 cat = "bat";

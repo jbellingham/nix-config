@@ -53,6 +53,7 @@
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
     xsel # Clipboard terminal utility like pbcopy & pbpaste
+    gnumake # Make command for running makefiles
 
     # networking tools
     mtr # A network diagnostic tool

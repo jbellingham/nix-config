@@ -8,3 +8,7 @@ update:
 .PHONY: clean
 clean:
 	nix-collect-garbage -d
+
+.PHONY: space
+space:
+	./scripts/trim-generations.sh
