@@ -9,6 +9,14 @@
             shopify.ruby-lsp
             wakatime.vscode-wakatime
             ms-vscode.makefile-tools
+            arrterian.nix-env-selector
+        ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+            {
+                name = "codeium";
+                publisher = "codeium";
+                version = "1.15.15";
+                sha256 = "1qq2nkd1r6qq4m1l69hdj09mq7p0pblnqg9p11xagjawlvcyhp3b";
+            }
         ];
         userSettings = {
             "editor.fontSize" = 16;
@@ -25,6 +33,7 @@
             "codeium.enableConfig" = {
                 "*" = true;
                 "nix" = true;
+                "erb" = true;
             };
         };
     };

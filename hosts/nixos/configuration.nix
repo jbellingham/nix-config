@@ -116,6 +116,10 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+  # Enable dynamically linked libraries to be called.
+  # So far only needed for VS Code Codeium extension
+  programs.nix-ld.enable = true;
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -166,6 +170,9 @@
     gnome-tweaks
     simple-scan # document scanner
     yelp        # help viewer
+
+    wineWowPackages.stable
+    winetricks
   ];
 
 

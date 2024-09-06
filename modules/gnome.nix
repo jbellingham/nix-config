@@ -79,6 +79,8 @@
 
       "org/gnome/settings-daemon/plugins/color" = {
         night-light-enabled = true;
+        night-light-schedule-automatic = true;
+        night-light-temperature = 2700;
       };
 
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
@@ -93,6 +95,7 @@
         "code.desktop"
         "org.gnome.Console.desktop"
         "net.lutris.Lutris.desktop"
+        "me.hyliu.fluentreader.desktop"
       ];
 
       # Enable installed extensions

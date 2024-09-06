@@ -22,5 +22,8 @@
     # Social
     "com.discordapp.Discord"
     "com.slack.Slack"
+
+    # RSS
+    "me.hyliu.fluentreader"
   ];
 }
