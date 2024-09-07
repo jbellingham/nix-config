@@ -1,5 +1,5 @@
 { ... }: {
-  home-manager.users."jesse" = {
+  home-manager.users."jessebellingham" = {
     programs.firefox = {
       enable = true;
     };

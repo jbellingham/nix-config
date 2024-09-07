@@ -1,14 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./modules/gnome.nix
-  ];
+  # imports = [
+  #   ./modules/gnome.nix
+  # ];
   
-  # TODO please change the username & home directory to your own
-  home.username = "jesse";
-  home.homeDirectory = "/home/jesse";
-
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
@@ -32,7 +28,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    gtk-engine-murrine # gnome-toolkit -- gnome theme thingo
+    # gtk-engine-murrine # gnome-toolkit -- gnome theme thingo
 
     neofetch
     mc # Midnight Commander - terminal file explorer
@@ -87,20 +83,20 @@
     glow # markdown previewer in terminal
 
     btop  # replacement of htop/nmon
-    iotop # io monitoring
+    # iotop # io monitoring
     iftop # network monitoring
 
     # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoring
+    # strace # system call monitoring
+    # ltrace # library call monitoring
     lsof # list open files
 
     # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
+    # sysstat
+    # lm_sensors # for `sensors` command
+    # ethtool
+    # pciutils # lspci
+    # usbutils # lsusb
   ];
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator

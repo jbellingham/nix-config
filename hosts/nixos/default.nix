@@ -17,7 +17,9 @@ nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.backupFileExtension = ".bak";
-
+      
+      home.username = "jessebellingham";
+      home.homeDirectory = "/home/jessebellingham";
       home-manager.users.jesse = import ../../home.nix;
     }
   ];

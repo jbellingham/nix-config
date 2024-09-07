@@ -1,5 +1,5 @@
 { ... }: {
-  home-manager.users."jesse".programs.git = {
+  home-manager.users."jessebellingham".programs.git = {
     enable = true;
     ignores = [ ".direnv" ];
     includes = [

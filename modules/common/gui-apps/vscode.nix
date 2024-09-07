@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-    home-manager.users."jesse".programs.vscode = {
+    home-manager.users."jessebellingham".programs.vscode = {
         enable = true;
         package = pkgs.vscode;
         extensions = with pkgs.vscode-extensions; [
@@ -10,6 +10,16 @@
             wakatime.vscode-wakatime
             ms-vscode.makefile-tools
             arrterian.nix-env-selector
+            github.copilot
+            kisstkondoros.vscode-codemetrics
+            dbaeumer.vscode-eslint
+            github.copilot-chat
+            vincaslt.highlight-matching-tag
+            wix.vscode-import-cost
+            christian-kohler.npm-intellisense
+            pnp.polacode
+            mechatroner.rainbow-csv
+            redhat.vscode-yaml
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
                 name = "codeium";

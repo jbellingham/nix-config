@@ -42,7 +42,9 @@
     in rec {
     nixosConfigurations = {
       nixos = import ./hosts/nixos { inherit inputs globals; };
-      darwin = import ./hosts/darwin { inherit inputs globals; };
     };
+
+    darwinConfigurations."Jesses-MacBook-Pro" = import ./hosts/darwin/default.nix { inherit inputs globals; };
+    darwinPackages = self.darwinConfigurations."Jesses-MacBook-Pro".pkgs;
   };
 }

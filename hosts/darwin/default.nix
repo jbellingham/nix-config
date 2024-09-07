@@ -1,10 +1,10 @@
 { inputs, ... }: with inputs;
-  darwin.lib.darwinSystem {
+darwin.lib.darwinSystem {
+    system = "aarch64-darwin";
+    
     modules = [
-        configuration
         ./configuration.nix
         ../../modules/darwin
-
         # home manager
         home-manager.darwinModules.home-manager
         {
@@ -12,7 +12,13 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = ".bak";
 
-          home-manager.users.jesse = import ../../home.nix;
+          users.users.jessebellingham = {
+            home = "/Users/jessebellingham";
+            name = "jessebellingham";
+          };
+
+          home-manager.users.jessebellingham = import ../../home.nix;
         }
       ];
-  }
+}
+  

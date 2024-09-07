@@ -1,6 +1,6 @@
 { config, ... }:
 {
-    home-manager.users."jesse".programs.direnv = {
+    home-manager.users."jessebellingham".programs.direnv = {
         enable = true;
         enableZshIntegration = true;
         nix-direnv.enable = true;
