@@ -14,16 +14,29 @@
             autocd = true;
 
             shellAliases = {
-                update = "(cd ~/nixos-config && make)";
-                makespace = "(cd ~/nixos-config && make space)";
-                ll = "ls -latr";
+                # docker
+                dlist = "docker ps -a && docker images";
+                dps = "docker ps";
+                dcb = "docker-compose build";
+                dcu = "docker-compose up";
+                dcd = "docker-compose down";
+
+                # kubernetes
+                k = "kubectl";
+                kns = "kubens";
+
+                # dotnet
+                drunp = "dotnet run --project";
 
                 cat = "bat";
                 top = "btop";
+
+                #   vim="lvim -S Session.vim";
+                vim = "vim -S Session.vim";
                 grep = "grep -iF --color=auto";
-                say = "spd-say";
-                pbcopy = "xsel --clipboard --input";
-                pbpaste = "xsel --clipboard --output";
+                tmuxa = "tmux attach";
+                dockerdebug = "docker run -ti --entrypoint sh";
+                ll = "ls -latr";
             };
 
             plugins = [

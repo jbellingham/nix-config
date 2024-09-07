@@ -13,6 +13,12 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 
@@ -21,7 +27,7 @@
       globals =
         rec {
             # user = "jesse";
-            # fullName = fullName;        
+            # fullName = fullName;
             # gitName = fullName;
             # gitEmail = "5078290+jbellingham@users.noreply.github.com";
           };
@@ -36,7 +42,7 @@
     in rec {
     nixosConfigurations = {
       nixos = import ./hosts/nixos { inherit inputs globals; };
-      # darwin = import ./hosts/darwin { inherit inputs globals; };
+      darwin = import ./hosts/darwin { inherit inputs globals; };
     };
   };
 }
