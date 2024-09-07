@@ -1,6 +1,7 @@
 { ...}: {
   imports = [
-    ./gui-apps
+    ../common/gui-apps
+    ./flatpaks.nix
     ./aliases.nix
   ];
 }
