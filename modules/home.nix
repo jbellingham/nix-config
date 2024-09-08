@@ -52,6 +52,11 @@ in with lib;
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
     home-manager.backupFileExtension = ".bak";
+
+    users.users.${cfg.name} = {
+      name = cfg.name;
+      home = cfg.home;
+    };
     
     home-manager.users.${cfg.name} = {
 
