@@ -2,18 +2,20 @@
 darwin.lib.darwinSystem {
     system = "aarch64-darwin";
     modules = [
+        # home manager
+        home-manager.darwinModules.home-manager
         ./configuration.nix
         ../../modules/common
         ../../modules/darwin
-        # home manager
-        home-manager.darwinModules.home-manager
         {
           imports = [
             ../../modules/home.nix
           ];
 
-          users.user.name = "jessebellingham";
+          users.user = {
+            enable = true;
+            name = "jessebellingham";
+          };
         }
-      ];
+    ];
 }
-  

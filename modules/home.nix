@@ -7,7 +7,6 @@
 let
   inherit (lib)
     types
-    mkDefault
     ;
 
   cfg = config.users.user;
@@ -25,9 +24,9 @@ let
 in with lib;
 {
   options.users.user = {
+    enable = mkEnableOption "Enable this user.";
     name = mkOption {
       type = types.str;
-      default = "jesse";
     };
 
     fullName = mkOption {
@@ -46,7 +45,7 @@ in with lib;
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     # home.username = cfg.name;
     # home.homeDirectory = cfg.home;
 
@@ -79,7 +78,6 @@ in with lib;
 
       # Packages that should be installed to the user profile.
       home.packages = with pkgs; [
-
         neofetch
         mc # Midnight Commander - terminal file explorer
 

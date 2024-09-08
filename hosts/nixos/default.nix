@@ -18,6 +18,11 @@ nixpkgs.lib.nixosSystem {
       imports = [
         ../../modules/home.nix
       ];
+
+      users.user = {
+        enable = true;
+        name = "jesse";
+      };
     }
   ];
 }
