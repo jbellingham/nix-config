@@ -1,23 +1,19 @@
 { inputs, ... }: with inputs;
 darwin.lib.darwinSystem {
     system = "aarch64-darwin";
-    
     modules = [
         ./configuration.nix
+        ../../modules/common
+        ../../modules/home/user.nix
         ../../modules/darwin
         # home manager
         home-manager.darwinModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = ".bak";
+          imports = [
+            ../../modules/home.nix
+          ];
 
-          users.users.jessebellingham = {
-            home = "/Users/jessebellingham";
-            name = "jessebellingham";
-          };
-
-          home-manager.users.jessebellingham = import ../../home.nix;
+          users.user.name = "jessebellingham";
         }
       ];
 }

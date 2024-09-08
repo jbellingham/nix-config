@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-    home-manager.users."jessebellingham".programs.vscode = {
+{ config, pkgs, ... }: {
+    home-manager.users.${config.users.user.name}.programs.vscode = {
         enable = true;
         package = pkgs.vscode;
         extensions = with pkgs.vscode-extensions; [
@@ -11,13 +11,13 @@
             ms-vscode.makefile-tools
             arrterian.nix-env-selector
             github.copilot
-            kisstkondoros.vscode-codemetrics
+            # kisstkondoros.vscode-codemetrics
             dbaeumer.vscode-eslint
             github.copilot-chat
             vincaslt.highlight-matching-tag
             wix.vscode-import-cost
             christian-kohler.npm-intellisense
-            pnp.polacode
+            # pnp.polacode
             mechatroner.rainbow-csv
             redhat.vscode-yaml
         ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

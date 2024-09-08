@@ -5,7 +5,7 @@
     ./zsh.nix
   ];
 
-home-manager.users."jessebellingham" = {
+home-manager.users.${config.users.user.name} = {
     programs.mcfly = {
       enable = true;
       fzf.enable = true;

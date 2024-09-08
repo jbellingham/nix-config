@@ -4,9 +4,9 @@
     # chsh -s $(which zsh)
 
     programs.zsh.enable = true;
-    users.users."jessebellingham".shell = pkgs.zsh;
+    users.users.${config.users.user.name}.shell = pkgs.zsh;
 
-    home-manager.users."jessebellingham" = {
+    home-manager.users.${config.users.user.name} = {
         programs.zsh = {
             enable = true;
             autosuggestion.enable = true;
