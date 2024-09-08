@@ -3,7 +3,8 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let cfg = config.users.user;
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -102,9 +103,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jesse = {
+  users.users.${cfg.name} = {
     isNormalUser = true;
-    description = "Jesse Bellingham";
+    description = cfg.fullName;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       vscode
@@ -128,7 +129,7 @@
     enable = true;
     # Certain features, including CLI integration and system authentication support,
     # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = [ "jesse" ];
+    polkitPolicyOwners = [ cfg.name ];
   };
 
   programs.virt-manager.enable = true;
@@ -216,5 +217,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
