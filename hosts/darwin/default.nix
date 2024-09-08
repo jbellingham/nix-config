@@ -4,7 +4,6 @@ darwin.lib.darwinSystem {
     modules = [
         ./configuration.nix
         ../../modules/common
-        ../../modules/home/user.nix
         ../../modules/darwin
         # home manager
         home-manager.darwinModules.home-manager
