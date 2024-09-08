@@ -16,6 +16,14 @@ darwin.lib.darwinSystem {
             enable = true;
             name = "jessebellingham";
           };
+
+          # todo: figure out why this is necessary
+          home-manager.users.jesse = {
+            home.stateVersion = "24.05";
+          };
+          home-manager.users.jessebellingham = {
+            home.stateVersion = "24.05";
+          };
         }
     ];
 }

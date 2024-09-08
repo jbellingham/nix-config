@@ -13,6 +13,7 @@ environment.systemPackages = with pkgs;
         gh
         git
         git-extras
+        jump
         jq
         nodePackages."npm-check-updates"
         shellcheck
