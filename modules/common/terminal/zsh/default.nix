@@ -39,6 +39,14 @@
                 ll = "ls -latr";
             };
 
+            # .functions.ephemeral is `git update-index --assume-unchanged`
+            # This can still cause git conflicts. To undo this in order to resolve conflicts, run
+            # `git update-index --no-assume-unchanged <filename>`
+            initExtra = ''
+                source ${./.functions}
+                source ${./.functions.ephemeral}
+            '';
+
             plugins = [
             {
                 name = "fzf-tab";

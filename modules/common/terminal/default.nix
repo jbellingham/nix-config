@@ -2,7 +2,7 @@
 {
   imports = [
     ./direnv.nix
-    ./zsh.nix
+    ./zsh
   ];
 
 home-manager.users.${config.users.user.name} = {

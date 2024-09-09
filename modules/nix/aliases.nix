@@ -1,6 +1,5 @@
 { ... }: {
   environment.shellAliases = {
-    
       update = "(cd ~/nixos-config && make)";
       makespace = "(cd ~/nixos-config && make space)";
       say = "spd-say";
