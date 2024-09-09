@@ -15,7 +15,7 @@ space:
 	./scripts/trim-generations.sh
 
 .PHONY: update-mac
-update:
+update-mac:
 	# nix flake update updates flake inputs, e.g. nixpkgs
 	# --commit-lock-file will commit changes to flake.lock
 	nix flake update --commit-lock-file && \
