@@ -93,7 +93,6 @@ in with lib;
         p7zip
 
         # utils
-        bat
         p7zip
         tldr
         ripgrep # recursively searches directories for a regex pattern

@@ -96,7 +96,7 @@ let
         };
 
         "org/gnome/shell".favorite-apps = [
-          "firefox.desktop"
+          "brave-browser.desktop"
           "md.obsidian.Obsidian.desktop"
           "com.spotify.Client.desktop"
           "code.desktop"

@@ -8,7 +8,6 @@ environment.systemPackages = with pkgs;
         # ---
         ant
         awscli2
-        bat
         btop
         gh
         git
@@ -16,6 +15,7 @@ environment.systemPackages = with pkgs;
         jump
         jq
         nodePackages."npm-check-updates"
+        nixfmt-rfc-style
         shellcheck
         tldr
 

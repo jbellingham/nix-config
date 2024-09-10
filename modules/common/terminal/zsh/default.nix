@@ -1,62 +1,64 @@
-{ config, pkgs, ... }: {
-    # Ensure zsh is installed and enabled as the default shell
-    # command -v zsh | sudo tee -a /etc/shells
-    # chsh -s $(which zsh)
+{ config, pkgs, ... }:
+{
+  # Ensure zsh is installed and enabled as the default shell
+  # command -v zsh | sudo tee -a /etc/shells
+  # chsh -s $(which zsh)
 
-    programs.zsh.enable = true;
-    users.users.${config.users.user.name}.shell = pkgs.zsh;
+  programs.zsh.enable = true;
+  users.users.${config.users.user.name}.shell = pkgs.zsh;
 
-    home-manager.users.${config.users.user.name} = {
-        programs.zsh = {
-            enable = true;
-            autosuggestion.enable = true;
-            syntaxHighlighting.enable = true;
-            autocd = true;
+  home-manager.users.${config.users.user.name} = {
+    programs.zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      autocd = true;
 
-            shellAliases = {
-                # docker
-                dlist = "docker ps -a && docker images";
-                dps = "docker ps";
-                dcb = "docker-compose build";
-                dcu = "docker-compose up";
-                dcd = "docker-compose down";
+      shellAliases = {
+        # docker
+        dlist = "docker ps -a && docker images";
+        dps = "docker ps";
+        dcb = "docker-compose build";
+        dcu = "docker-compose up";
+        dcd = "docker-compose down";
 
-                # kubernetes
-                k = "kubectl";
-                kns = "kubens";
+        # kubernetes
+        k = "kubectl";
+        kns = "kubens";
 
-                # dotnet
-                drunp = "dotnet run --project";
+        # dotnet
+        drunp = "dotnet run --project";
 
-                cat = "bat";
-                top = "btop";
+        cat = "bat";
+        top = "btop";
 
-                #   vim="lvim -S Session.vim";
-                vim = "vim -S Session.vim";
-                grep = "grep -iF --color=auto";
-                tmuxa = "tmux attach";
-                dockerdebug = "docker run -ti --entrypoint sh";
-                ll = "ls -latr";
-            };
+        #   vim="lvim -S Session.vim";
+        vim = "vim -S Session.vim";
+        grep = "grep -iF --color=auto";
+        tmuxa = "tmux attach";
+        dockerdebug = "docker run -ti --entrypoint sh";
+        ll = "ls -latr";
+      };
 
-            # .functions.ephemeral is `git update-index --assume-unchanged`
-            # This can still cause git conflicts. To undo this in order to resolve conflicts, run
-            # `git update-index --no-assume-unchanged <filename>`
-            initExtra = ''
-                source ${./.functions}
-                source ${./.functions.ephemeral}
-            '';
+      # .functions.ephemeral is `git update-index --assume-unchanged`
+      # This can still cause git conflicts. To undo this in order to resolve conflicts, run
+      # `git update-index --no-assume-unchanged <filename>`
+      initExtra = ''
+        source ${./.functions}
+        source ${./.functions.ephemeral}
+      '';
 
-            plugins = [
-            {
-                name = "fzf-tab";
-                src = pkgs.fetchFromGitHub {
-                    owner = "Aloxaf";
-                    repo = "fzf-tab";
-                    rev = "v1.1.2";
-                    sha256 = "Qv8zAiMtrr67CbLRrFjGaPzFZcOiMVEFLg1Z+N6VMhg=";
-                };
-            }];
-        };
+      plugins = [
+        {
+          name = "fzf-tab";
+          src = pkgs.fetchFromGitHub {
+            owner = "Aloxaf";
+            repo = "fzf-tab";
+            rev = "v1.1.2";
+            sha256 = "Qv8zAiMtrr67CbLRrFjGaPzFZcOiMVEFLg1Z+N6VMhg=";
+          };
+        }
+      ];
     };
+  };
 }
