@@ -110,10 +110,6 @@ in
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      vscode
-      #  thunderbird
-    ];
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
@@ -124,9 +120,6 @@ in
   # So far only needed for VS Code Codeium extension
   programs.nix-ld.enable = true;
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   programs._1password.enable = true;
   programs._1password-gui = {
     enable = true;
@@ -136,16 +129,6 @@ in
   };
 
   programs.virt-manager.enable = true;
-
-  environment.etc = {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-        vivaldi-bin
-        wavebox
-      '';
-      mode = "0755";
-    };
-  };
 
   programs.steam = {
     enable = true;
@@ -163,6 +146,7 @@ in
     "nix-command"
     "flakes"
   ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -182,8 +166,9 @@ in
     winetricks
   ];
 
-  environment.gnome.excludePackages =
-    (with pkgs; [
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
       # gnome-music
       # gnome-maps
       gnome-tour
@@ -192,12 +177,8 @@ in
       cheese # photo booth
       epiphany # web browser
       totem # video player
-    ])
-    ++ (
-      with pkgs.gnome;
-      [
-      ]
-    );
+    ]
+  );
 
   environment.variables.EDITOR = "vim";
 

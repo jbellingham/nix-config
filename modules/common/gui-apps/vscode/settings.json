@@ -1,0 +1,19 @@
+{
+    "codeium.enableConfig": {
+        "*": true,
+        "erb": true,
+        "nix": true
+    },
+    "debug.console.fontFamily": "'Monaspace Argon', monospace",
+    "editor.cursorStyle": "line",
+    "editor.fontFamily": "'Monaspace Argon', monospace",
+    "editor.fontSize": 16,
+    "editor.formatOnSave": true,
+    "editor.renderWhitespace": "all",
+    "git.autofetch": true,
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nixd",
+    "nixd.options.enable": true,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontSize": 16
+}
