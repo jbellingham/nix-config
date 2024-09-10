@@ -1,4 +1,5 @@
-{ ...}: {
+{ ... }:
+{
   imports = [
     ./aliases.nix
     ../common/gui-apps

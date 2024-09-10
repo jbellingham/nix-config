@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   home-manager.users.${config.users.user.name} = {
     programs.chromium = {
       enable = true;

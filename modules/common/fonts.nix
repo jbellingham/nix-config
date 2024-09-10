@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home-manager.users."jesse".home = with pkgs; {
     packages = [
       fira-code

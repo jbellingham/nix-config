@@ -1,13 +1,13 @@
 { pkgs, ... }:
 
-  ###################################################################################
-  #
-  #  macOS's System configuration
-  #
-  #  All the configuration options are documented here:
-  #    https://daiderd.com/nix-darwin/manual/index.html#sec-options
-  #
-  ###################################################################################
+###################################################################################
+#
+#  macOS's System configuration
+#
+#  All the configuration options are documented here:
+#    https://daiderd.com/nix-darwin/manual/index.html#sec-options
+#
+###################################################################################
 {
 
   system = {
@@ -24,9 +24,9 @@
 
         # https://daiderd.com/nix-darwin/manual/index.html#opt-system.defaults.dock.wvous-bl-corner
         wvous-bl-corner = 13; # lock screen
-        wvous-br-corner = null;  # disabled
-        wvous-tl-corner = null;  # disabled
-        wvous-tr-corner = null;  # disabled
+        wvous-br-corner = null; # disabled
+        wvous-tl-corner = null; # disabled
+        wvous-tr-corner = null; # disabled
 
         largesize = 64;
         magnification = true;
@@ -43,7 +43,7 @@
           AppleShowAllFiles = true;
           "com.apple.swipescrolldirection" = false;
           ApplePressAndHoldEnabled = true;
-          
+
           # Add a context menu item for showing the Web Inspector in web views
           WebKitDeveloperExtras = true;
         };
@@ -101,10 +101,10 @@
 
   fonts = {
     packages = [
-        pkgs.hack-font
-        pkgs.meslo-lg
-        pkgs.meslo-lgs-nf
-        pkgs.source-code-pro
+      pkgs.hack-font
+      pkgs.meslo-lg
+      pkgs.meslo-lgs-nf
+      pkgs.source-code-pro
     ];
   };
 

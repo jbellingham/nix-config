@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   home-manager.users.${config.users.user.name}.programs.git = {
     enable = true;
     ignores = [ ".direnv" ];

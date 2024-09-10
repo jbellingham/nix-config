@@ -5,7 +5,7 @@
     ./zsh
   ];
 
-home-manager.users.${config.users.user.name} = {
+  home-manager.users.${config.users.user.name} = {
     programs.mcfly = {
       enable = true;
       fzf.enable = true;
@@ -17,7 +17,6 @@ home-manager.users.${config.users.user.name} = {
     };
 
     programs.vim.enable = true;
-
 
     programs.autojump = {
       enable = true;

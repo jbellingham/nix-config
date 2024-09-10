@@ -3,13 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let cfg = config.users.user;
+let
+  cfg = config.users.user;
 in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # nixpkgs.config.packageOverrides = pkgs: {
   #   nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
@@ -58,12 +59,11 @@ in
     LC_TIME = "en_AU.UTF-8";
   };
 
-
   # Configure keymap in X11
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
-  
+
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
     desktopManager = {
@@ -106,10 +106,13 @@ in
   users.users.${cfg.name} = {
     isNormalUser = true;
     description = cfg.fullName;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       vscode
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -135,13 +138,13 @@ in
   programs.virt-manager.enable = true;
 
   environment.etc = {
-      "1password/custom_allowed_browsers" = {
-        text = ''
-          vivaldi-bin
-          wavebox
-        '';
-        mode = "0755";
-      };
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        vivaldi-bin
+        wavebox
+      '';
+      mode = "0755";
+    };
   };
 
   programs.steam = {
@@ -156,38 +159,45 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     baobab # disk usage analyzer
     # eog         # image viewer
-    evince      # document viewer
+    evince # document viewer
     # file-roller # archive manager
-    gedit       # text editor
+    gedit # text editor
     git
-  
+
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     gnome-tweaks
     simple-scan # document scanner
-    yelp        # help viewer
+    yelp # help viewer
 
     wineWowPackages.stable
     winetricks
   ];
 
-
-  environment.gnome.excludePackages = (with pkgs; [
-    # gnome-music
-    # gnome-maps
-    gnome-tour
-    seahorse    # password manager
-    geary       # email client
-    cheese      # photo booth
-    epiphany    # web browser
-    totem       # video player
-  ]) ++ (with pkgs.gnome; [
-  ]);
+  environment.gnome.excludePackages =
+    (with pkgs; [
+      # gnome-music
+      # gnome-maps
+      gnome-tour
+      seahorse # password manager
+      geary # email client
+      cheese # photo booth
+      epiphany # web browser
+      totem # video player
+    ])
+    ++ (
+      with pkgs.gnome;
+      [
+      ]
+    );
 
   environment.variables.EDITOR = "vim";
 

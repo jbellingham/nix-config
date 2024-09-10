@@ -21,30 +21,35 @@
 
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
       # Global configuration for my systems
-      globals =
-        rec {
-            # user = "jesse";
-            # fullName = fullName;
-            # gitName = fullName;
-            # gitEmail = "5078290+jbellingham@users.noreply.github.com";
-          };
+      globals = rec {
+        # user = "jesse";
+        # fullName = fullName;
+        # gitName = fullName;
+        # gitEmail = "5078290+jbellingham@users.noreply.github.com";
+      };
 
       # System types to support.
-      supportedSystems =
-        [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
+      supportedSystems = [
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-linux"
+        "aarch64-darwin"
+      ];
 
       # Helper function to generate an attrset '{ x86_64-linux = f "x86_64-linux"; ... }'.
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    in {
-    nixosConfigurations = {
-      nixos = import ./hosts/nixos { inherit inputs globals; };
-    };
+    in
+    {
+      nixosConfigurations = {
+        nixos = import ./hosts/nixos { inherit inputs globals; };
+      };
 
-    darwinConfigurations."jesses-mbp" = import ./hosts/darwin/default.nix { inherit inputs globals; };
-    darwinPackages = self.darwinConfigurations."jesses-mbp".pkgs;
-  };
+      darwinConfigurations."jesses-mbp" = import ./hosts/darwin/default.nix { inherit inputs globals; };
+      darwinPackages = self.darwinConfigurations."jesses-mbp".pkgs;
+    };
 }

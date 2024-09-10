@@ -5,30 +5,34 @@
 }:
 let
   gnomeExtensions = with pkgs.gnomeExtensions; [
-      blur-my-shell
-      pano
-      gsconnect
-      dash-to-dock
-      removable-drive-menu
-      bluetooth-quick-connect
-      # sound-output-device-chooser
-      coverflow-alt-tab
-      panel-corners
-      rounded-window-corners
-      rounded-window-corners
-      vitals
-      just-perfection
-      caffeine
-      user-themes
-      user-themes-x
-      tactile
-    ];
- in {
+    blur-my-shell
+    pano
+    gsconnect
+    dash-to-dock
+    removable-drive-menu
+    bluetooth-quick-connect
+    # sound-output-device-chooser
+    coverflow-alt-tab
+    panel-corners
+    rounded-window-corners
+    rounded-window-corners
+    vitals
+    just-perfection
+    caffeine
+    user-themes
+    user-themes-x
+    tactile
+  ];
+in
+{
 
   home-manager.users.${config.users.user.name} = {
-    home.packages = with pkgs; [
-      gtk-engine-murrine
-    ] ++ gnomeExtensions;
+    home.packages =
+      with pkgs;
+      [
+        gtk-engine-murrine
+      ]
+      ++ gnomeExtensions;
 
     gtk = {
       enable = true;
@@ -132,8 +136,8 @@ let
 
         # Configure Pano
         "org/gnome/shell/extensions/pano" = {
-          global-shortcut = ["<Super>comma"];
-          incognito-shortcut = ["<Shift><Super>less"];
+          global-shortcut = [ "<Super>comma" ];
+          incognito-shortcut = [ "<Shift><Super>less" ];
         };
 
         # Configure Bluetooth Quick Connect
@@ -159,10 +163,10 @@ let
         "org/gnome/shell/extensions/vitals" = {
           show-battery = true;
           hot-sensors = [
-              "_memory_usage_"
-              "_processor_usage_"
-              "_battery_state_"
-              "_battery_rate_"
+            "_memory_usage_"
+            "_processor_usage_"
+            "_battery_state_"
+            "_battery_rate_"
           ];
         };
 

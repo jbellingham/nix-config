@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
-environment.systemPackages = with pkgs;
-    [
-        darwin.trash
-    ];
+  environment.systemPackages = with pkgs; [
+    darwin.trash
+  ];
 }
