@@ -10,10 +10,30 @@
     "editor.fontSize": 16,
     "editor.formatOnSave": true,
     "editor.renderWhitespace": "all",
+    "editor.trimAutoWhitespace": true,
+    "editor.guides.bracketPairs": "active",
     "git.autofetch": true,
     "nix.enableLanguageServer": true,
     "nix.serverPath": "nixd",
     "nixd.options.enable": true,
     "terminal.integrated.fontFamily": "MesloLGS NF",
-    "terminal.integrated.fontSize": 16
+    "editor.accessibilitySupport": "off",
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.preferredDarkColorTheme": "Monokai Dimmed",
+    "terminal.integrated.fontSize": 16,
+    "[svelte]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.codeLens": true,
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    }
 }

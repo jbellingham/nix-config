@@ -16,8 +16,8 @@
 
     intellij = "open -na 'IntelliJ IDEA Ultimate.app'";
     goland = "open -na 'GoLand.app'";
-    rebuildmac = "(cd ~/nix-darwin-config && make update-mac)";
-    editmac = "(cd ~/nix-darwin-config && code .)";
+    rebuildmac = "(cd ~/nixos-config && make update-mac)";
+    editmac = "(code ~/nixos-config)";
 
     startyabai = "yabai --start-service";
     stopyabai = "yabai --stop-service";

@@ -32,7 +32,9 @@ update-mac:
 # Broken symlinks in /etc/ssl/certs/ caused this. I fixed it by running:
 # sudo rm /etc/ssl/certs/ca-certificates.crt
 # sudo ln -s /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
-install:
+install-mac:
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install macos
 	nix run nix-darwin -- switch --flake ~/nix-darwin-config
 	nix-channel --update
+	mkdir -p "$HOME"/Library/Application\ Support/Code/User || exit 0
+	ln -s "$HOME"/nixos-config/modules/common/gui-apps/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
