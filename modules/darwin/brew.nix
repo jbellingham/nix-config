@@ -23,7 +23,7 @@
       "docker"
       "flycut"
       "flux"
-      "logi-options-plus"
+      "logitech-options"
       "raycast"
       "rectangle"
 
@@ -35,9 +35,7 @@
       # ---
       # Browser
       # ---
-      "brave-browser"
       "firefox"
-      "google-chrome"
       "arc"
 
       # ---

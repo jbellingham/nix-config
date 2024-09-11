@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-
   environment.systemPackages = with pkgs; [
     # https://search.nixos.org/packages
     # ---

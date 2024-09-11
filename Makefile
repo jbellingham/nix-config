@@ -19,7 +19,7 @@ update-mac:
 	# nix flake update updates flake inputs, e.g. nixpkgs
 	# --commit-lock-file will commit changes to flake.lock
 	nix flake update --commit-lock-file && \
-	darwin-rebuild switch --flake .
+	darwin-rebuild switch --flake ".#jesses-mbp"
 
 .PHONY: install-mac
 
@@ -34,7 +34,7 @@ update-mac:
 # sudo ln -s /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
 install-mac:
 	curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install macos
-	nix run nix-darwin -- switch --flake ~/nix-darwin-config
+	nix run nix-darwin -- switch --flake ".#jesses-mbp"
 	nix-channel --update
 	mkdir -p "$HOME"/Library/Application\ Support/Code/User || exit 0
 	ln -s "$HOME"/nixos-config/modules/common/gui-apps/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json

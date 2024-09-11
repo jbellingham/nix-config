@@ -49,7 +49,9 @@
         nixos = import ./hosts/nixos { inherit inputs globals; };
       };
 
-      darwinConfigurations."jesses-mbp" = import ./hosts/darwin/default.nix { inherit inputs globals; };
-      darwinPackages = self.darwinConfigurations."jesses-mbp".pkgs;
+      darwinConfigurations = {
+        jesses-mbp = import ./hosts/darwin { inherit inputs globals; };
+      };
+      darwinPackages = self.darwinConfigurations.jesses-mbp.pkgs;
     };
 }

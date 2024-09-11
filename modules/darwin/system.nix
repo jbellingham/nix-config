@@ -9,6 +9,8 @@
 #
 ###################################################################################
 {
+  # Remove this once updated to MacOS 15
+  ids.uids.nixbld = 300;
 
   system = {
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
