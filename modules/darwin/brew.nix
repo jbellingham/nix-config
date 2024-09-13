@@ -5,11 +5,9 @@
     taps = [
       "homebrew/cask-fonts"
     ];
-    brews = [
-      "borders"
-      "dep-tree"
-      "direnv"
-    ];
+    brews =
+      [
+      ];
     masApps = {
       "1Password for Safari" = 1569813296;
       "Xcode" = 497799835;
@@ -21,7 +19,6 @@
       "1password"
       "cheatsheet"
       "docker"
-      "flycut"
       "flux"
       "logitech-options"
       "raycast"
@@ -41,6 +38,7 @@
       # ---
       # Dev-related
       # ---
+      "visual-studio-code"
       "fork"
       "meld"
       "wezterm"

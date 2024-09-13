@@ -16,5 +16,6 @@
     enableTCPIP = true;
   };
 
+  system.stateVersion = 5;
   nix.package = pkgs.nix;
 }
