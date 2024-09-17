@@ -16,7 +16,7 @@
 
     intellij = "open -na 'IntelliJ IDEA Ultimate.app'";
     goland = "open -na 'GoLand.app'";
-    rebuildmac = "(cd ~/nixos-config && make update-mac)";
+    update = "(cd ~/nixos-config && make update-mac)";
     editmac = "(code ~/nixos-config)";
 
     startyabai = "yabai --start-service";
