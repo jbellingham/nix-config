@@ -158,7 +158,7 @@ in
     git
 
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    gnome-tweaks
+    # gnome-tweaks
     simple-scan # document scanner
     yelp # help viewer
 
@@ -172,11 +172,11 @@ in
       # gnome-music
       # gnome-maps
       gnome-tour
-      seahorse # password manager
-      geary # email client
-      cheese # photo booth
+      # seahorse # password manager
+      # geary # email client
+      # cheese # photo booth
       epiphany # web browser
-      totem # video player
+      # totem # video player
     ]
   );
 
