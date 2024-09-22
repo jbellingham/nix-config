@@ -21,7 +21,7 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { self, nixpkgs, home-manager, ... }@inputs:
     let
       # Global configuration for my systems
       globals = rec {
@@ -52,5 +52,9 @@
         jesses-mbp = import ./hosts/darwin { inherit inputs globals; };
       };
       darwinPackages = self.darwinConfigurations.jesses-mbp.pkgs;
+
+      homeConfigurations = {
+        jesses-fedora = import ./hosts/fedora { inherit inputs globals home-manager; };
+      };
     };
 }
