@@ -2,6 +2,9 @@
 {
   homebrew = {
     enable = true;
+    onActivation = {
+      cleanup = "uninstall";
+    };
     taps = [
       "homebrew/cask-fonts"
     ];
@@ -21,6 +24,7 @@
       "docker"
       "flux"
       "logitech-options"
+      "meetingbar"
       "raycast"
       "rectangle"
 
