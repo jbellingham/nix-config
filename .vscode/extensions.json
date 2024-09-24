@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "codeium.codeium",
+        "bbenoist.nix",
+        "jnoortheen.nix-ide",
+        "wakatime.vscode-wakatime",
+        "shopify.ruby-lsp"
+    ]
+}

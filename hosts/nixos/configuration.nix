@@ -128,6 +128,7 @@ in
     polkitPolicyOwners = [ cfg.name ];
   };
 
+  virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
   programs.steam = {
