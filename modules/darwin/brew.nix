@@ -23,7 +23,7 @@
       "cheatsheet"
       "docker"
       "flux"
-      "logitech-options"
+      "logi-options+"
       "meetingbar"
       "raycast"
       "rectangle"
@@ -36,6 +36,7 @@
       # ---
       # Browser
       # ---
+      "brave-browser"
       "firefox"
       "arc"
 
