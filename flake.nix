@@ -55,6 +55,7 @@
 
       homeConfigurations = {
         jesses-fedora = import ./hosts/fedora { inherit inputs globals home-manager; };
+        jesses-wsl = import ./hosts/wsl { inherit inputs globals home-manager; };
       };
     };
 }
